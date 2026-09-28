@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "Space Mono", monospace;
+
+  --color-ink: #101c1b;
+  --color-ink-deep: #0a1413;
+  --color-surface: #1a2b2a;
+  --color-surface-2: #223836;
+  --color-line: #2e4644;
+  --color-brass: #d9a441;
+  --color-brass-bright: #f0bf63;
+  --color-ember: #c1462f;
+  --color-paper: #ede7dd;
+  --color-mist: #8fa9a5;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom range slider styling shared across the "channel strip" faders */
+input[type="range"].fader {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--color-brass) 0%,
+    var(--color-brass) var(--fill, 50%),
+    var(--color-line) var(--fill, 50%),
+    var(--color-line) 100%
+  );
+  outline: none;
+}
+
+input[type="range"].fader::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-paper);
+  border: 2px solid var(--color-brass);
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+input[type="range"].fader::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-paper);
+  border: 2px solid var(--color-brass);
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--color-brass);
+  color: var(--color-ink);
+}
+
+* {
+  scrollbar-color: var(--color-line) transparent;
+  scrollbar-width: thin;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

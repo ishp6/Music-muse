@@ -1,0 +1,9 @@
+node_modules/
+uploads/*
+!uploads/.gitkeep
+processed/*
+!processed/.gitkeep
+creations/*
+!creations/.gitkeep
+data/db.json
+.env
